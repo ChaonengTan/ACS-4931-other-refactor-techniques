@@ -16,14 +16,45 @@ foods = {'butternut squash soup':[45, True, 'soup','North African',\
                 'seasoning 3. Add all the content to a sausage stuffer. Put the casing on'
                 "the stuffer funnel. Rotate the stuffer's handle (or turn it on) to make your yummy sausages!"]}
 
-for key, value in foods.items():
-    print("Name:",key)
-    print("Prep time:",value[0], "mins")
-    print("Is Veggie?", 'Yes' if value[1] else "No")
-    print("Food Type:", value[2])
-    print("Cuisine:", value[3])
-    for item in value[4]:
-        print(item, end=', ')
-    print()
-    print("recipe", value[5])
-    print("***")
+# for key, value in foods.items():
+#     print("Name:",key)
+#     print("Prep time:",value[0], "mins")
+#     print("Is Veggie?", 'Yes' if value[1] else "No")
+#     print("Food Type:", value[2])
+#     print("Cuisine:", value[3])
+#     for item in value[4]:
+#         print(item, end=', ')
+#     print()
+#     print("recipe", value[5])
+#     print("***")
+
+class Food:
+    def __init__(self, name, prep_time, is_veggie, food_type, cuisine, ingredients, recipe):
+        self.name = name
+        self.prep_time = prep_time
+        self.is_veggie = is_veggie
+        self.food_type = food_type
+        self.cuisine = cuisine
+        self.ingredients = ingredients
+        self.recipe = recipe
+
+    def getName(self):
+        return self.name
+
+    def getPrepTime(self):
+        return self.prep_time
+
+    def getIsVeggie(self):
+        return self.is_veggie
+
+    def getFoodType(self):
+        return self.food_type
+
+    def getCuisine(self):
+        return self.cuisine
+
+    def getIngredients(self):
+        return self.ingredients
+
+    def getRecipe(self):
+        return self.recipe

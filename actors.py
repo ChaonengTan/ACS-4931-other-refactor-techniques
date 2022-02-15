@@ -7,14 +7,29 @@ movies = [['Tenet', 'Vita & Virgina', 'Guardians of the Galexy', 'The Great Gats
      ['Ace Ventura', 'The Mask', 'Dubm and Dumber', 'The Truman Show', 'Yes Man']]
 emails = ['deb@makeschool.com', 'jim@makeschool.com']
 
-def send_hiring_email(email):
-    print("email sent to: ", email)
-    
-for i, value in enumerate(emails):
-    if birth_year[i] > 1985:
-        print(first_names[i], last_names[i])
-        print('Movies Played: ', end='')
-        for m in movies[i]:
-            print(m, end=', ')
-        print()
-        send_hiring_email(value)
+class Actor:
+    def __init__(self, firstName, lastName, birthYear, movies, email):
+        self.firstName = firstName
+        self.lastName = lastName
+        self.birthYear = birthYear
+        self.movies = movies
+        self.email = email
+
+    def sendHiringEmail(self, email):
+        print(f"email sent to: {email}" )
+
+    def bornAfter1985(self):
+        if self.birthYear > 1985:
+            print(f"{self.firstName} {self.lastName}")
+            print('Movies Played: ', end='')
+            for m in self.movies:
+                print(m, end=', ')
+            self.sendHiringEmail(self.email)
+        else:
+            print("Born before 1985")
+
+elizabeth = Actor('Elizabeth', 'Debicki', 1990, ['Tenet', 'Vita & Virgina', 'Guardians of the Galexy', 'The Great Gatsby'], 'deb@makeschool.com')
+jim = Actor('Jim', 'Carrey', 1962, ['Ace Ventura', 'The Mask', 'Dubm and Dumber', 'The Truman Show', 'Yes Man'], 'jim@makeschool.com')
+
+elizabeth.bornAfter1985()
+jim.bornAfter1985()
